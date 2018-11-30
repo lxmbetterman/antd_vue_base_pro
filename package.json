@@ -1,0 +1,25 @@
+{
+  "name": "antd_vue_base_pro",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.1.8",
+    "enquire.js": "^2.1.6",
+    "vue": "^2.5.17",
+    "vue-ls": "^3.2.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-service": "^3.0.5",
+    "babel-plugin-import": "^1.11.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.17"
+  }
+}
