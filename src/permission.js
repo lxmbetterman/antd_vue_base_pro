@@ -4,6 +4,5 @@
 /**
  * test
  * */
-import store from './store'
 
 

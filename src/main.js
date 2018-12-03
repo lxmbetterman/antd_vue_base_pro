@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Storage from 'vue-ls'
 import config from "../defaultConfig"
 
-import {Button, Drawer, Icon, Layout,Menu} from 'ant-design-vue';
+import {Button, Drawer, Icon, Layout, Menu} from 'ant-design-vue';
 
 
 import App from './App.vue'
@@ -19,11 +19,8 @@ Vue.use(Menu)
 
 Vue.config.productionTip = false
 
-Vue.use(Storage,config.storageOptions)
+Vue.use(Storage, config.storageOptions)
 
-
-
-console.log(Vue.ls.get("SIDEBAR_STATUS", false),">>>>>???")
 new Vue({
     router,
     store,

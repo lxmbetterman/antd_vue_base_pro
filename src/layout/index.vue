@@ -3,9 +3,9 @@
         <a-layout>
             <!--左侧侧边栏-->
             <a-drawer v-if="device=='mobile'" placement="left" wrapClassName="drawerContainer"
-                      @close="() => this.collapsed = false" :closable="false" :visible="collapsed">
+                      @close="handleClose" :closable="false" :visible="!collapsed"> <!--visible和collapsed效果相反-->
                 <SideMenu mode="inline" :collapsed="false" :collapsible="true" :menus="permission_routers"
-                ></SideMenu> <!--collapsible ： 侧边栏是否可收起 -->
+                ></SideMenu> <!--collapsible ： 侧边栏是否可收起 false:一直都是打开的状态-->
             </a-drawer>
             <SideMenu v-else mode="inline" :collapsed="collapsed" :collapsible="true":menus="permission_routers"
             ></SideMenu>
@@ -43,7 +43,7 @@
         components: {SideMenu, LayoutHeader, LayoutFooter, RouteView},
         data() {
             return {
-                collapsed: false
+                collapsed: false  //collpsed:关闭的 ，合起的（true）; 打开的（false）
             }
         },
         computed: {
@@ -60,9 +60,12 @@
             toggle() {
                 this.collapsed = !this.collapsed
                 //triggerResize()
-                console.log(this.collapsed,"LLL")
                 this.Toggle_sidebar_status(this.collapsed)
             },
+            handleClose(){
+                console.log("handle close")
+                this.collapsed = true
+            }
         },
         mounted(){
             this.collapsed = this.sidebarOpened
