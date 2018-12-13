@@ -10,6 +10,7 @@
     "ant-design-vue": "^1.1.8",
     "axios": "^0.18.0",
     "enquire.js": "^2.1.6",
+    "mockjs": "^1.0.1-beta3",
     "vue": "^2.5.17",
     "vue-ls": "^3.2.0",
     "vue-router": "^3.0.1",

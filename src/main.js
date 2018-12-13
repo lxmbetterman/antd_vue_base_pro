@@ -2,24 +2,34 @@ import Vue from 'vue'
 import Storage from 'vue-ls'
 import config from "../defaultConfig"
 
-import {Button, Drawer, Icon, Layout, Menu} from 'ant-design-vue';
+import {Button, Drawer, Icon, Layout, Menu,Input,Form,Checkbox} from 'ant-design-vue';
 
 
 import App from './App.vue'
 import router from './router/router'
 import store from './store'
-
 import "./permission"
+import {VueAxios} from "./axios/request"
 
 Vue.use(Button)
 Vue.use(Layout)
 Vue.use(Drawer)
 Vue.use(Icon)
 Vue.use(Menu)
+Vue.use(Input)
+Vue.use(Form)
+Vue.use(Checkbox)
 
 Vue.config.productionTip = false
 
 Vue.use(Storage, config.storageOptions)
+Vue.use(VueAxios, router) //整体使用就行
+
+import './mock' // 引入模拟数据接口
+
+
+
+
 
 new Vue({
     router,

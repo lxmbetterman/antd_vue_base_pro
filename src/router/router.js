@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from "../views/login"
 import Layout from "../layout/index"
 
 Vue.use(Router)
 
 export const constantRouterMap = [
     {
-        path: '/home',
-        name: 'home',
-        component: Home,
-        meta: { title: '表单页', icon: 'form' },
+        path: '/login',
+        name: 'login',
+        component: Login,
+        meta: {title: '登陆页', icon: 'form'},
         hidden: true
     },
     {
@@ -20,7 +20,7 @@ export const constantRouterMap = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-        meta: { title: '表单页', icon: 'form' },
+        meta: {title: '表单页', icon: 'form'},
         hidden: true
     },
 
@@ -29,7 +29,7 @@ export const constantRouterMap = [
         component: Layout,
         redirect: 'dashboard',
         name: "首页",
-        meta: { title: '仪表盘', icon: 'form' },
+        meta: {title: '仪表盘', icon: 'form'},
         children: [
             {
                 path: 'dashboard',
@@ -51,6 +51,29 @@ export default new Router({
 })
 
 export const asyncRouterMap = [
+    {
+        path: 'test',
+        component: Layout,
+        name: "test",
+        redirect: '/test/testA',
+        meta: {title: 'test测试页面', icon: 'question'},
+        children: [
+            {
+                path: '/test/testA',
+                component: () => import('../views/test/testA'),
+                name: 'testA',
+                meta: {title: '测试页面A', icon: 'question', noCache: true, roles: ['admin']}  //'admin',
+            },
+            {
+                path: '/test/testB',
+                component: () => import('../views/test/testB'),
+                name: 'testA',
+                meta: {
+                    title: '测试页面B', icon: 'question', noCache: true, roles: ['editor']
+                }
+            }
+        ]
+    }
 ]
 
 
