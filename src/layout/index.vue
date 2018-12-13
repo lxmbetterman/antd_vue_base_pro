@@ -63,7 +63,6 @@
                 this.Toggle_sidebar_status(this.collapsed)
             },
             handleClose(){
-                console.log("handle close")
                 this.collapsed = true
             }
         },

@@ -37,7 +37,6 @@ export default {
         rootSubmenuKeys: (vm) => {
             let keys = []
             vm.menu.forEach(item => keys.push(item.path))
-            console.log(vm.menu, keys)
             return keys
         }
     },
@@ -129,9 +128,7 @@ export default {
             }
         },
         updateMenu() {
-            console.log(this.$route, "this.$route")
             let routes = this.$route.matched.concat()
-            console.log(routes, "routes")
             if (routes.length >= 3 && this.$route.meta.hidden) {  //如果路径层级大于3,且对应的页面是不可见的，则其父级被选中
                 routes.pop()   //pop() 方法用于删除并返回数组的最后一个元素。
                 this.selectedKeys = [routes[1].path]

@@ -135,7 +135,7 @@
             ]),
         },
         mounted: function () {
-            console.log(this.permission_routers, "permission_routers")
+
         },
         methods: {
             test(a) {

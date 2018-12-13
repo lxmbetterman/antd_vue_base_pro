@@ -46,7 +46,6 @@
         },
         methods:{
             hasOneShowingChild(children, parent){
-                console.log(children, parent,"XXX")
                 /**
                  * children:每个旅游的children属性
                  * 路由的parent

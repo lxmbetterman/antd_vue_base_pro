@@ -67,7 +67,7 @@ export const asyncRouterMap = [
             {
                 path: '/test/testB',
                 component: () => import('../views/test/testB'),
-                name: 'testA',
+                name: 'testB',
                 meta: {
                     title: '测试页面B', icon: 'question', noCache: true, roles: ['editor']
                 }
