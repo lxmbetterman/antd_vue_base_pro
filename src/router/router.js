@@ -14,6 +14,13 @@ export const constantRouterMap = [
         hidden: true
     },
     {
+        path: '/404',
+        name: '404',
+        component: Login,
+        meta: {title: '登陆页', icon: 'form'},
+        hidden: true
+    },
+    {
         path: '/about',
         name: 'about',
         // route level code-splitting
@@ -73,7 +80,8 @@ export const asyncRouterMap = [
                 }
             }
         ]
-    }
+    },
+    { path: '*', redirect: '/404', hidden: true }
 ]
 
 

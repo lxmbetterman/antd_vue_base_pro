@@ -1,22 +1,39 @@
 <template>
     <div class="login_container">
-        <Login ></Login>
+        <div style="height: 20vh;"></div>
+        <Login></Login>
     </div>
 </template>
 
 <script>
-
-    //import Login from "../components/login"
     import {Form} from 'ant-design-vue'
+    import {mapActions} from "vuex"
+
+
     const Login = Form.create()({
-        mounted(){
-        },
+
         methods: {
+            ...mapActions([ "Login"]),
             handleSubmit(e) {
+                console.log(this,"??")
                 e.preventDefault()
                 this.form.validateFields((err, values) => {
                     if (!err) {
                         console.log('Received values of form: ', values)
+                        /*this.axios({
+                            url: '/login/login',
+                            method: 'post',
+                            data: {}
+                        }).then(function (data) {
+                            console.log(data, "XXXX")
+                        })*/
+
+                        this.Login(values).then(() => {
+                            console.log("login Success")
+                            this.$router.push({ name: "Dashboard" })
+                        }).catch((err) => {
+                            console.log("login error")
+                        })
                     }
                 })
             },
@@ -61,26 +78,17 @@
     })
     export default {
         name: "login",
-        components:{Login},
-        data(){
-            return {
-            }
+        components: {Login},
+        data() {
+            return {}
         },
-        methods:{
-            login(){
-                this.axios({
-                    url: '/login/login',
-                    method: 'post',
-                    data: {}
-                }).then(function (data) {
-                    console.log(data)
-                })
-            }
-        }
+        mounted:function () {
+
+        },
     }
 </script>
 
-<style >
+<style>
     #components-form-demo-normal-login .login-form {
         max-width: 300px;
     }
@@ -93,11 +101,9 @@
         width: 100%;
     }
 
-
-    .login_container{
+    .login_container {
         width: 500px;
         margin: 0 auto;
         background-color: transparent;
-        margin-top: 10%;
     }
 </style>

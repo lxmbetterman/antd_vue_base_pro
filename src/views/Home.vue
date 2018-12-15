@@ -2,6 +2,7 @@
     <div class="home">
         <a-button type="primary" @click="test">editor</a-button>
         <a-button type="primary" @click="test2">admin</a-button>
+        <a-button type="primary" @click="logout">logOut</a-button>
     </div>
 </template>
 
@@ -21,6 +22,11 @@
                 this.$store.dispatch("GenerateRoutes",{roles:["admin"]}).then(res=>{
                     console.log(this.$store.getters.addRouters)
                     console.log(this.$store.getters.permission_routers)
+                })
+            },
+            logout(){
+                this.$store.dispatch("Logout").then(res=>{
+                    window.location.reload()
                 })
             }
         }
